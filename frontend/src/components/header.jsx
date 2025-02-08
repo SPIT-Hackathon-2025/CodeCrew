@@ -12,6 +12,7 @@ import { Briefcase, Building, Info, Phone, LogIn, Pencil, Menu, X } from "lucide
 import { ConnectButton } from "thirdweb/react";
 import { client } from "../client.js";
 
+
 const Header = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [search, setSearch] = useSearchParams();
@@ -44,12 +45,12 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-10 text-lg font-medium text-white">
-          {[ 
+          {[
             { name: "Dashboard", icon: <Briefcase size={18} /> },
             { name: "Stages", icon: <Building size={18} /> },
             { name: "Marketplace", icon: <Info size={18} /> },
             { name: "Contact", icon: <Phone size={18} /> }
-            
+
           ].map(({ name, icon }, index) => (
             <Link
               key={index}
@@ -59,17 +60,20 @@ const Header = () => {
               {icon} {name}
             </Link>
           ))}
-          <ConnectButton
-            client={client}
-            appMetadata={{
-              name: "Example app",
-              url: "https://example.com",
-            }}
-            wallet="metamask"
-          />
+
+         
+            <ConnectButton
+              client={client}
+              appMetadata={{
+                name: "Example app",
+                url: "https://example.com",
+              }}
+              wallet="metamask"
+            />
+         
         </div>
 
-      
+
 
         {/* Right Section */}
         <div className="flex items-center gap-4">
@@ -105,17 +109,15 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 bg-black/70 backdrop-blur-sm transition-all duration-300 ${
-          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        } md:hidden`}
+        className={`fixed inset-0 bg-black/70 backdrop-blur-sm transition-all duration-300 ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          } md:hidden`}
         onClick={() => setMenuOpen(false)}
       >
         <div
-          className={`absolute top-0 right-0 w-60 h-full bg-gray-900 text-blue-500 flex flex-col gap-5 p-5 transform ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          } transition-all duration-300`}
+          className={`absolute top-0 right-0 w-60 h-full bg-gray-900 text-blue-500 flex flex-col gap-5 p-5 transform ${menuOpen ? "translate-x-0" : "translate-x-full"
+            } transition-all duration-300`}
         >
-          {[ 
+          {[
             { name: "Dashboard", icon: <Briefcase size={18} /> },
             { name: "Stages", icon: <Building size={18} /> },
             { name: "Marketplace", icon: <Info size={18} /> },
