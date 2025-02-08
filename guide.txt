@@ -1,0 +1,2 @@
+to run type in terminal >>> dfx deploy --playground 
+for help >>> dfx new -h
