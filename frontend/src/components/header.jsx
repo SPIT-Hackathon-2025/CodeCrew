@@ -14,9 +14,10 @@ import { client } from "../client.js";
 
 
 const Header = () => {
+
   const [showSignIn, setShowSignIn] = useState(false);
   const [search, setSearch] = useSearchParams();
-  const { user } = useUser();
+  const { isSignedIn,  user } = useUser();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -61,16 +62,23 @@ const Header = () => {
             </Link>
           ))}
 
-         
+       
+          {isSignedIn  && (
+
             <ConnectButton
               client={client}
+         
               appMetadata={{
                 name: "Example app",
                 url: "https://example.com",
               }}
               wallet="metamask"
             />
+
+          )}
+
          
+
         </div>
 
 
