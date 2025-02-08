@@ -49,35 +49,52 @@ const LandingPage = () => {
         plugins={[Autoplay({ delay: 2000 })]}
         className="w-full py-10 px-4 sm:px-10"
       >
-        <CarouselContent className="flex gap-3 sm:gap-5 md:gap-10 items-center">
+        <CarouselContent className="flex gap-4 sm:gap-6 md:gap-12 items-center">
           {companies.map(({ name, id, path }) => (
             <CarouselItem key={id} className="basis-1/3 sm:basis-1/6">
-              <img src={path} alt={name} className="h-6 sm:h-9 md:h-14 object-contain" />
+              <img src={path} alt={name} className="h-25 sm:h-40 md:h-60 object-contain" />
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
 
-      {/* Job Seekers & Employers Cards */}
       <div className="bg-gray-800 p-6">
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-          {["Job Seekers", "Employers", "Freelancers", "Interns", "Remote Jobs", "Career Growth"].map((title, index) => (
-            <Card key={index} className="bg-gray-900 text-gray-100 p-6 rounded-xl border border-gray-700 shadow-lg transition-all hover:shadow-2xl">
-              <CardHeader>
-                <CardTitle className="font-bold text-xl text-blue-400">{title}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-gray-400">
-                {title === "Job Seekers" && "Search and apply for jobs, track applications, and more."}
-                {title === "Employers" && "Post jobs, manage applications, and find the best candidates."}
-                {title === "Freelancers" && "Find freelance projects and collaborate with top clients."}
-                {title === "Interns" && "Explore internship opportunities and kickstart your career."}
-                {title === "Remote Jobs" && "Work from anywhere with remote job listings from top companies."}
-                {title === "Career Growth" && "Access career guidance, resume building, and interview prep."}
-              </CardContent>
-            </Card>
-          ))}
-        </section>
+  <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+    {[
+      { name: "Epic Sword", emoji: "⚔️", gradient: "from-green-400 to-lime-500" },
+      { name: "Mystic Shield", emoji: "🛡️", gradient: "from-purple-500 to-pink-500" },
+      { name: "Dragon Helmet", emoji: "🐉", gradient: "from-teal-400 to-cyan-500" },
+      { name: "Fire Bow", emoji: "🏹", gradient: "from-red-500 to-orange-500" },
+      { name: "Stealth Boots", emoji: "🥾", gradient: "from-yellow-400 to-amber-500" },
+      { name: "Thunder Axe", emoji: "🪓", gradient: "from-blue-500 to-indigo-500" }
+    ].map((asset, index) => (
+      <div
+        key={index}
+        className="bg-gray-900 text-gray-100 p-6 rounded-xl border border-gray-700 shadow-lg transition-all hover:shadow-2xl flex flex-col justify-center items-center"
+      >
+        {/* Modern Neon Icon */}
+        <div
+          className={`mb-4 flex items-center justify-center bg-gradient-to-br ${asset.gradient} p-4 rounded-full`}
+          style={{
+            boxShadow: "0px 4px 15px rgba(255, 255, 255, 0.2)", // Softer glow effect
+          }}
+        >
+          <span className="text-4xl text-white">{asset.emoji}</span>
+        </div>
+        <div className="text-center">
+          <h3 className="text-2xl font-bold text-white mb-2">{asset.name}</h3>
+          <p className="text-sm text-gray-400 mb-2">Epic Asset - 0.10 ETH</p>
+          <p className="text-sm text-gray-400 mb-2">Available in the marketplace</p>
+          <p className="text-sm text-gray-400">Unlock your next adventure!</p>
+        </div>
       </div>
+    ))}
+  </section>
+</div>
+
+
+
+
 
       {/* FAQ Section */}
       <section className="max-w-4xl mx-auto w-full px-4">

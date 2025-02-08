@@ -23,5 +23,15 @@
       "name": "meta",
       "path": "/companies/5.png",
       "id": 5
+    },
+    {
+      "name": "meta",
+      "path": "/companies/6.png",
+      "id": 6
+    },
+    {
+      "name": "meta",
+      "path": "/companies/7.png",
+      "id": 7
     }
   ]

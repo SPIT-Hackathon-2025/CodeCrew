@@ -34,7 +34,7 @@ const Header = () => {
       {/* Navbar */}
       <nav className="py-1 px-6 flex justify-between items-center fixed top-0 left-0 w-full z-50 bg-gray-800 backdrop-blur-md shadow-lg">
         {/* Logo */}
-        <Link to="/landing-page" className="flex items-center gap-5">
+        <Link to="/" className="flex items-center gap-5">
           <div className="h-18 w-30">
             <img src="/logo.png" className="h-16 w-20 px-1" alt="Logo" />
           </div>
@@ -44,7 +44,7 @@ const Header = () => {
         <div className="hidden md:flex gap-10 text-lg font-medium text-white">
           {[ 
             { name: "Dashboard", icon: <Briefcase size={18} /> },
-            { name: "Stages", icon: <Building size={18} /> },
+            { name: "Leaderboard", icon: <Building size={18} /> },
             { name: "Marketplace", icon: <Info size={18} /> },
             { name: "Contact", icon: <Phone size={18} /> },
           ].map(({ name, icon }, index) => (
@@ -104,7 +104,7 @@ const Header = () => {
         >
           {[ 
             { name: "Dashboard", icon: <Briefcase size={18} /> },
-            { name: "Stages", icon: <Building size={18} /> },
+            { name: "Leaderboard", icon: <Building size={18} /> },
             { name: "Marketplace", icon: <Info size={18} /> },
             { name: "Contact", icon: <Phone size={18} /> },
           ].map(({ name, icon }, index) => (

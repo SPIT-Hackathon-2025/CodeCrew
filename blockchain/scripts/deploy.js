@@ -55,17 +55,11 @@
 const hre = require("hardhat");
 
 async function main() {
-  const GameAsset = await hre.ethers.getContractFactory("OpenSeaGameAsset");
-  const gameAsset = await GameAsset.deploy(
-    "GameAssetName",  // Name of your collection
-    "GAME",          // Symbol for your token
-    "https://your-metadata-api.com/",  // Base URI for metadata
-    "https://your-metadata-api.com/contract"  // Contract URI
-  );
+  const EspeonNFT = await hre.ethers.getContractFactory("EspeonNFT");
+  const nft = await EspeonNFT.deploy();
+  await nft.deployed();
 
-  await gameAsset.deployed();
-
-  console.log("OpenSeaGameAsset deployed to:", gameAsset.address);
+  console.log("NFT Contract deployed to:", nft.address);
 }
 
 main()

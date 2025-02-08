@@ -6,10 +6,8 @@ import ProtectedRoute from "./components/protected-route";
 import LandingPage from "./pages/LandingPage";
 import "./App.css";
 import Dashboard from "./pages/Dashboard";
-import Stages from "./pages/Stages";
-import Community from "./pages/Community/Community";
-import FirstPage from "./pages/FirstPage";
 import Marketplace from "./pages/Marketplace";
+import Leaderboard from "./pages/Leaderboard";
 
 const router = createBrowserRouter([
   {
@@ -17,10 +15,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <FirstPage />,
-      },
-      {
-        path: "/landing-page",
         element: <LandingPage />,
       },
   
@@ -40,15 +34,14 @@ const router = createBrowserRouter([
             </ProtectedRoute>
         ),
       },
-      // {
-      //   path: "/community",
-      //   element: (
-      //     <ProtectedRoute>
-      //       <Community/>
-      //       </ProtectedRoute>
-      //   ),
-      // },
-      
+      {
+        path: "/leaderboard",
+        element: (
+          <ProtectedRoute>
+            <Leaderboard/>
+            </ProtectedRoute>
+        ),
+      },
       
     ],
   },
