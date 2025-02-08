@@ -10,6 +10,8 @@ import Stages from "./pages/Stages";
 import Community from "./pages/Community/Community";
 import FirstPage from "./pages/FirstPage";
 import Marketplace from "./pages/Marketplace";
+import Leaderboard from "./pages/Leaderboard";
+
 
 const router = createBrowserRouter([
   {
@@ -20,16 +22,20 @@ const router = createBrowserRouter([
         element: <FirstPage />,
       },
       {
-        path: "/onboarding",
-        element: <FirstPage />,
-      },
-      {
         path: "/landing-page",
         element: <LandingPage />,
       },
+      {
+        path: "/stages",
+        element: <Stages />,
+      },
+      {
+        path: "/leaderboard",
+        element: <Leaderboard />,
+      },
   
       {
-        path: "/dashboard",
+        path: "/tournament",
         element: (
           <ProtectedRoute>
             <Dashboard />

@@ -4,18 +4,14 @@ import { useUser } from "@clerk/clerk-react";
 
 const ProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded, user } = useUser();
-  const { pathname } = useLocation();
 
-  if (isLoaded && !isSignedIn && isSignedIn !== undefined) {
-    return <Navigate to="/?sign-in=true" />;
+  if (!isLoaded) {
+    return <Loading size="large" text="Checking authentication..." />;
   }
 
-  if (
-    user !== undefined &&
-    !user?.unsafeMetadata?.role &&
-    pathname !== "/onboarding"
-  )
-    return <Navigate to="/onboarding" />;
+  if (!isSignedIn) {
+    return <Navigate to="/?sign-in=true" />;
+  }
 
   return children;
 };

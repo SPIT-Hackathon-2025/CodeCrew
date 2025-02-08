@@ -8,7 +8,16 @@ import {
   useUser,
 } from "@clerk/clerk-react";
 import { Button } from "./ui/button";
-import { Briefcase, Building, Info, Phone, LogIn, Pencil, Menu, X } from "lucide-react";
+import { 
+  LayoutDashboard, 
+  GamepadIcon, 
+  ShoppingCart, 
+  Trophy,
+  MessageSquare,
+  LogIn,
+  Menu, 
+  X 
+} from "lucide-react";
 import { ConnectButton } from "thirdweb/react";
 import { client } from "../client.js";
 
@@ -24,6 +33,7 @@ const Header = () => {
     if (search.get("sign-in")) {
       setShowSignIn(true);
     }
+    console.log("user", user);
   }, [search]);
 
   const handleOverlayClick = (e) => {
@@ -47,11 +57,10 @@ const Header = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-10 text-lg font-medium text-white">
           {[
-            { name: "Dashboard", icon: <Briefcase size={18} /> },
-            { name: "Stages", icon: <Building size={18} /> },
-            { name: "Marketplace", icon: <Info size={18} /> },
-            { name: "Contact", icon: <Phone size={18} /> }
-
+            { name: "Tournament", icon: <LayoutDashboard size={18} /> },
+            { name: "Stages", icon: <GamepadIcon size={18} /> },
+            { name: "Marketplace", icon: <ShoppingCart size={18} /> },
+            { name: "Leaderboard", icon: <Trophy size={18} /> }
           ].map(({ name, icon }, index) => (
             <Link
               key={index}
@@ -126,10 +135,11 @@ const Header = () => {
             } transition-all duration-300`}
         >
           {[
-            { name: "Dashboard", icon: <Briefcase size={18} /> },
-            { name: "Stages", icon: <Building size={18} /> },
-            { name: "Marketplace", icon: <Info size={18} /> },
-            { name: "Contact", icon: <Phone size={18} /> },
+            { name: "Dashboard", icon: <LayoutDashboard size={18} /> },
+            { name: "Stages", icon: <GamepadIcon size={18} /> },
+            { name: "Marketplace", icon: <ShoppingCart size={18} /> },
+            { name: "Contact", icon: <MessageSquare size={18} /> },
+            { name: "Leaderboard", icon: <Trophy size={18} /> }
           ].map(({ name, icon }, index) => (
             <Link
               key={index}
