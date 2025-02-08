@@ -1,0 +1,27 @@
+[
+    {
+      "name": "amazon",
+      "path": "/companies/1.png",
+      "id": 1
+    },
+    {
+      "name": "atlassian",
+      "path": "/companies/2.png",
+      "id": 2
+    },
+    {
+      "name": "google",
+      "path": "/companies/3.png",
+      "id": 3
+    },
+    {
+      "name": "ibm",
+      "path": "/companies/4.png",
+      "id": 4
+    },
+    {
+      "name": "meta",
+      "path": "/companies/5.png",
+      "id": 5
+    }
+  ]
