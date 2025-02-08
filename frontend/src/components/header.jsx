@@ -9,6 +9,8 @@ import {
 } from "@clerk/clerk-react";
 import { Button } from "./ui/button";
 import { Briefcase, Building, Info, Phone, LogIn, Pencil, Menu, X } from "lucide-react";
+import { ConnectButton } from "thirdweb/react";
+import { client } from "../client.js";
 
 const Header = () => {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -46,7 +48,8 @@ const Header = () => {
             { name: "Dashboard", icon: <Briefcase size={18} /> },
             { name: "Stages", icon: <Building size={18} /> },
             { name: "Marketplace", icon: <Info size={18} /> },
-            { name: "Contact", icon: <Phone size={18} /> },
+            { name: "Contact", icon: <Phone size={18} /> }
+            
           ].map(({ name, icon }, index) => (
             <Link
               key={index}
@@ -56,7 +59,17 @@ const Header = () => {
               {icon} {name}
             </Link>
           ))}
+          <ConnectButton
+            client={client}
+            appMetadata={{
+              name: "Example app",
+              url: "https://example.com",
+            }}
+            wallet="metamask"
+          />
         </div>
+
+      
 
         {/* Right Section */}
         <div className="flex items-center gap-4">
