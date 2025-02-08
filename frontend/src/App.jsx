@@ -17,9 +17,21 @@ const router = createBrowserRouter([
         path: "/",
         element: <LandingPage />,
       },
+      {
+        path: "/landing-page",
+        element: <LandingPage />,
+      },
+      {
+        path: "/stages",
+        element: <Stages />,
+      },
+      {
+        path: "/leaderboard",
+        element: <Leaderboard />,
+      },
   
       {
-        path: "/dashboard",
+        path: "/tournament",
         element: (
           <ProtectedRoute>
             <Dashboard />
