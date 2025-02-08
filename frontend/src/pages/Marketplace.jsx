@@ -18,34 +18,34 @@ const Marketplace = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-12 px-6 flex flex-col items-center">
-      <div className="w-full max-w-6xl flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold text-white">Game Assets Marketplace</h1>
-        <div className="relative">
+    <div className="min-h-screen bg-gray-900 text-white py-16 px-6 flex flex-col items-center">
+      <div className="w-full max-w-6xl flex justify-between items-center mb-12">
+
+        <div className="relative mt-8">
           <input
             type="text"
             placeholder="Search assets..."
-            className="bg-gray-800 text-white px-4 py-2 pl-10 rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-gray-800 text-white px-6 py-3 pl-12 rounded-full w-72 focus:outline-none focus:ring-2 focus:ring-lime-500 border-2 border-gray-700"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <FaSearch className="absolute left-3 top-3 text-gray-400" />
+          <FaSearch className="absolute left-4 top-4 text-gray-400" />
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 w-full max-w-6xl">
         {filteredAssets.map((asset) => (
           <div
             key={asset.id}
-            className="bg-gray-800 p-5 rounded-2xl shadow-xl transition-transform transform hover:scale-105 cursor-pointer hover:shadow-blue-500/50"
+            className="bg-gray-800 p-6 rounded-3xl shadow-2xl transition-all transform hover:scale-105 hover:shadow-xl cursor-pointer hover:border-lime-500 border-2 border-gray-700"
           >
-            <div className="w-full h-48 bg-gray-700 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+            <div className="w-full h-48 bg-gray-700 rounded-xl flex items-center justify-center text-white text-2xl font-bold border-b-2 border-gray-600">
               {asset.name}
             </div>
             <div className="mt-4 flex justify-between items-center">
-              <span className="text-lg font-semibold">{asset.name}</span>
-              <span className="text-blue-400 font-bold">{asset.price}</span>
+              <span className="text-xl font-semibold">{asset.name}</span>
+              <span className="text-lime-400 font-bold">{asset.price}</span>
             </div>
-            <button className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl transition-all">
+            <button className="mt-6 w-full bg-lime-500 hover:bg-lime-600 text-black py-3 rounded-xl transition-all">
               Buy Now
             </button>
           </div>

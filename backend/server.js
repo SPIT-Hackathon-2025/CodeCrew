@@ -6,10 +6,8 @@ import webhookRoutes from './routes/webhookRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
 import assetRoutes from './routes/assetRoutes.js'; 
 
-
 dotenv.config();
 
-// Connect to MongoDB
 connectDB();
 
 const app = express();
