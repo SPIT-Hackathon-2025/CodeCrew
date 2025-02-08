@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import webhookRoutes from './routes/webhookRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
+import assetRoutes from './routes/assetRoutes.js'; 
+
 
 dotenv.config();
 
@@ -15,6 +17,7 @@ app.use(cors());
 
 // Routes
 app.use('/api', webhookRoutes);
+app.use('/api', assetRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);
