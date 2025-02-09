@@ -52,14 +52,6 @@ const Header = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      {/* Navbar */}
-      <nav className="py-1 px-6 flex justify-between items-center fixed top-0 left-0 w-full z-50 bg-gray-800 backdrop-blur-md shadow-lg">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-5">
-          <div className="h-18 w-30">
-            <img src="/logo.png" className="h-20 w-30 px-1" alt="Logo" />
-=======
       <nav className="py-3 h-16 px-8 flex justify-between items-center fixed top-0 left-0 w-full z-50 bg-gray-800/95 backdrop-blur-md shadow-lg border-b border-gray-700/50">
         {/* Logo Section */}
         <Link to="/landing-page" className="flex-shrink-0">
@@ -69,7 +61,6 @@ const Header = () => {
               className="h-full w-auto object-contain hover:opacity-90 transition-all duration-300"
               alt="EspeonX"
             />
->>>>>>> 5d0da228168f8f7f8dddfccfb3dcb37a252ebdef
           </div>
         </Link>
  {/* Desktop Navigation */}

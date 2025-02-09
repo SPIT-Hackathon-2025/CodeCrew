@@ -1,5 +1,11 @@
 // userController.js
 import User from '../../../backend/models/userModel.js';
+import React, { useState, useEffect } from 'react';
+import ReactConfetti from 'react-confetti';
+import { Button } from '../components/ui/button';
+import axios from 'axios';
+import { toast } from '@/components/ui/use-toast';
+
 
 export const updateSkinAvailability = async (req, res) => {
   try {
@@ -44,11 +50,7 @@ export const updateSkinAvailability = async (req, res) => {
 };
 
 // Game1.jsx
-import React, { useState, useEffect } from 'react';
-import ReactConfetti from 'react-confetti';
-import { Button } from '../components/ui/button';
-import axios from 'axios';
-import { toast } from '@/components/ui/use-toast';
+
 
 function Game1() {
   const [hitCount, setHitCount] = useState(0);

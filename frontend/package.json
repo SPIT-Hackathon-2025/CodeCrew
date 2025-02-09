@@ -28,12 +28,9 @@
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
-<<<<<<< HEAD
     "axios": "^1.7.9",
-=======
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
->>>>>>> 5d0da228168f8f7f8dddfccfb3dcb37a252ebdef
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.5.2",
@@ -55,12 +52,8 @@
     "stream-browserify": "^3.0.0",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
-<<<<<<< HEAD
-    "thirdweb": "^5"
-=======
     "thirdweb": "^5",
     "util": "^0.12.5"
->>>>>>> 5d0da228168f8f7f8dddfccfb3dcb37a252ebdef
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
