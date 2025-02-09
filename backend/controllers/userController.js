@@ -46,37 +46,36 @@ export const updateXP = async (req, res) => {
 };
 
 // Update user's skin availability
-// userController.js
 export const updateSkinAvailability = async (req, res) => {
-    const { clerkUserId, skinName } = req.body;
-  
-    try {
-      console.log('Received data:', clerkUserId, skinName);  // Check the data being sent
-  
-      const user = await User.findOneAndUpdate(
-        { clerkUserId },
-        { $push: { skinAvailable: skinName } },
-        { new: true }
-      );
-  
-      if (!user) {
-        return res.status(404).json({ success: false, message: 'User not found' });
-      }
-  
-      console.log('User after update:', user);  // Check the updated user document
-  
-      res.status(200).json({
-        success: true,
-        message: `Skin ${skinName} unlocked and added to the user's profile.`,
-        user,
-      });
-    } catch (err) {
-      console.error('Error updating skin availability:', err.message);
-      res.status(500).json({ success: false, message: err.message });
-    }
-  };
-  
+  console.log('Request body:', req.body);  // Check the request body
+  const { clerkUserId, skinName } = req.body;
 
+  try {
+    console.log('Received data:', clerkUserId, skinName);  // Check the data being sent
+
+    const user = await User.findOneAndUpdate(
+      { clerkUserId },
+      { $push: { skinAvailable: skinName } },
+      {upsert:true, new: true }
+    );
+
+    console.log('User before update:', user);  // Check the user document before update
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    console.log('User after update:', user);  // Check the updated user document
+
+   return res.status(200).json({
+      success: true,
+      message: `Skin ${skinName} unlocked and added to the user's profile.`,
+      data: user,
+    });
+  } catch (err) {
+    console.error('Error updating skin availability:', err.message);
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
 
 // Add a game to the user's played games
 export const addGameToPlayed = async (req, res) => {

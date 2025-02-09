@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema(
     xp: { type: Number, default: 0 }, // User's experience points (XP)
     gamesPlayed: { 
       type: [{ 
-        gameName: { type: String, required: true }, // Name of the game
+        gameName: { type: String }, // Name of the game
         datePlayed: { type: Date, default: Date.now } // Date when the game was played
       }], 
       default: [] // Default to an empty array

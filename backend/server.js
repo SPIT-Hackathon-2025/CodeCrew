@@ -11,7 +11,16 @@ dotenv.config();
 
 connectDB();
 
+const corsOptions = {
+  origin: 'http://localhost:5173/', // Replace with your allowed origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
+
 const app = express();
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
 app.use(cors());
 
 
@@ -23,9 +32,9 @@ const NFTs = [
 app.get("/nfts", (req, res) => {
   res.json({ success: true, data: NFTs });
 });
+app.use('/api/user', userRoutes);
 app.use('/api', webhookRoutes);
 app.use('/api', assetRoutes);
-app.use('/api', userRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);
