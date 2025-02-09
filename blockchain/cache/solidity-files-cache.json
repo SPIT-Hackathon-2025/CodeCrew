@@ -677,6 +677,84 @@
       "artifacts": [
         "SignedMath"
       ]
+    },
+    "D:\\Hackathons\\CodeCrew\\blockchain\\contracts\\GameAsset.sol": {
+      "lastModificationDate": 1739063209806,
+      "contentHash": "cf35c5384615e7711496d68773aeb103",
+      "sourceName": "contracts/GameAsset.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "GameAssetNFT"
+      ]
+    },
+    "D:\\Hackathons\\CodeCrew\\blockchain\\contracts\\SkinNFT.sol": {
+      "lastModificationDate": 1739069075831,
+      "contentHash": "29fe85231aef86d1d3ffb35e2f8859eb",
+      "sourceName": "contracts/SkinNFT.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SkinNFT"
+      ]
     }
   }
 }

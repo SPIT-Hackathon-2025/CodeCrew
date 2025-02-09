@@ -55,11 +55,10 @@
 const hre = require("hardhat");
 
 async function main() {
-  const EspeonNFT = await hre.ethers.getContractFactory("EspeonNFT");
-  const nft = await EspeonNFT.deploy();
-  await nft.deployed();
+  const SkinNFT = await hre.ethers.getContractFactory("SkinNFT");
+  const nft = await SkinNFT.deploy(); // No need for .deployed()
 
-  console.log("NFT Contract deployed to:", nft.address);
+  console.log("NFT Contract deployed to:", nft.target); // Use .target instead of .address in Hardhat v6+
 }
 
 main()

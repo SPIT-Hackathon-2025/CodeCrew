@@ -50,7 +50,7 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-5">
           <div className="h-18 w-30">
-            <img src="/logo.png" className="h-16 w-20 px-1" alt="Logo" />
+            <img src="/logo.png" className="h-20 w-30 px-1" alt="Logo" />
           </div>
         </Link>
 
