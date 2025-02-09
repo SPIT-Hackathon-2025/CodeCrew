@@ -12,6 +12,8 @@ import Stages from "./pages/Stages";
 import Nft from "./pages/Nft";
 import Tournament from "./pages/Tournament";
 import Game1 from "./games/Game1";
+import Governance from "./pages/Governance";
+import { BlockchainProvider } from "./context/BlockchainContext";
 
 const router = createBrowserRouter([
   {
@@ -25,31 +27,48 @@ const router = createBrowserRouter([
         path: "/stages",
         element: <Stages />,
       },
+<<<<<<< HEAD
   
+=======
+      {
+        path: "/leaderboard",
+        element: <Leaderboard />,
+      },
+
+      {
+        path: "/tournament",
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
+      },
+>>>>>>> 6d6d3539bb8bfe8370bb3698eddf172451d5b033
       {
         path: "/marketplace",
         element: (
           <ProtectedRoute>
-            <Marketplace/>
-            </ProtectedRoute>
+            <Marketplace />
+          </ProtectedRoute>
         ),
       },
       {
         path: "/leaderboard",
         element: (
           <ProtectedRoute>
-            <Leaderboard/>
-            </ProtectedRoute>
+            <Leaderboard />
+          </ProtectedRoute>
         ),
       },
       {
-        path: "/tournament",
+        path: "/governance",
         element: (
           <ProtectedRoute>
-            <Tournament/>
-            </ProtectedRoute>
+            <Governance />
+          </ProtectedRoute>
         ),
       },
+     
       {
         path: "/game-1",
         element: (
@@ -58,7 +77,7 @@ const router = createBrowserRouter([
             </ProtectedRoute>
         ),
       },
-      
+
     ],
   },
 ]);
@@ -67,7 +86,9 @@ function App() {
   // return <div>hello</div>;
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
+      <BlockchainProvider>
+        <RouterProvider router={router} />
+      </BlockchainProvider>
     </ThemeProvider>
   );
 }
