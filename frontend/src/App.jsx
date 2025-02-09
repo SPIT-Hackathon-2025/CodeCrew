@@ -8,6 +8,7 @@ import "./App.css";
 import Dashboard from "./pages/Dashboard";
 import Marketplace from "./pages/Marketplace";
 import Leaderboard from "./pages/Leaderboard";
+import Stages from "./pages/Stages";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  // return <div>hello</div>;
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterProvider router={router} />

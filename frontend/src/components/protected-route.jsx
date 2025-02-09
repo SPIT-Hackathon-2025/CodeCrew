@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Navigate, useLocation } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
+import Loading from "./ui/loader";
 
 const ProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded, user } = useUser();

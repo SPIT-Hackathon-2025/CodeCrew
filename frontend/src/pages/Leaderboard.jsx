@@ -3,7 +3,7 @@ import { useState } from "react";
 "use client";
 import React from "react";
 
-export function Leaderboard() {
+const Leaderboard = () => {
   const [players] = useState([
     {
       rank: 1,
@@ -196,3 +196,5 @@ export function Leaderboard() {
     </div>
   );
 }
+
+export default Leaderboard;
