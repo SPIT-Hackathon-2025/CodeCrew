@@ -12,6 +12,9 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key")
 }
 
+// Add polyfill for buffer
+// window.Buffer = Buffer;
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThirdwebProvider>

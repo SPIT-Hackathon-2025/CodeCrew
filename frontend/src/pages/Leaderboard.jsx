@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from "react";
 import { FaUserCircle } from "react-icons/fa"; // Import the profile icon
 
-export function Leaderboard() {
+const Leaderboard = () => {
   const [players] = useState([
     {
       rank: 1,
@@ -157,3 +157,5 @@ export function Leaderboard() {
     </div>
   );
 }
+
+export default Leaderboard;
