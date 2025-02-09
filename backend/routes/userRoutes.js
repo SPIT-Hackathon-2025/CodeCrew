@@ -10,18 +10,18 @@ import {
 const router = express.Router();
 
 // Route to get user by Clerk User ID
-router.get('/user/:clerkUserId', getUserByClerkId);
+router.get('/:clerkUserId', getUserByClerkId);
 
 // Route to update user's XP
-router.put('/user/:clerkUserId/xp', updateXP);
+router.put('/:clerkUserId/xp', updateXP);
 
 // Route to update skin availability for a user
-router.put('/user/:clerkUserId/skins', updateSkinAvailability);
+router.post('/skins', updateSkinAvailability);
 
 // Route to add a game to the user's played games
-router.put('/user/:clerkUserId/games', addGameToPlayed);
+router.put('/:clerkUserId/games', addGameToPlayed);
 
 // Route to update Sepolia balance for a user
-router.put('/user/:clerkUserId/sepolia', updateSepoliaBalance);
+router.put('/:clerkUserId/sepolia', updateSepoliaBalance);
 
 export default router;

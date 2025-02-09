@@ -7,7 +7,7 @@ import LandingPage from "./pages/LandingPage";
 import "./App.css";
 import Dashboard from "./pages/Tournament";
 import Marketplace from "./pages/Marketplace";
-import {Leaderboard} from "./pages/Leaderboard";
+import Leaderboard from "./pages/Leaderboard";
 import Stages from "./pages/Stages";
 import Nft from "./pages/Nft";
 import Tournament from "./pages/Tournament";
@@ -24,10 +24,6 @@ const router = createBrowserRouter([
       {
         path: "/stages",
         element: <Stages />,
-      },
-      {
-        path: "/leaderboard",
-        element: <Leaderboard />,
       },
   
       {

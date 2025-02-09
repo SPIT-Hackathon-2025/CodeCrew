@@ -6,7 +6,7 @@ export const handleWebhook = async (req, res) => {
     const payloadString = req.body.toString();
     const svixHeaders = req.headers;
 
-    const wh = new Webhook(process.env.CLERK_WEBHOOK_SECRET_KEY);
+    const wh = new Webhook("whsec_c06S7RIIXGRBxRz/swLsvlX9oECkjqCJ");
     const evt = wh.verify(payloadString, svixHeaders);
     const { id, ...attributes } = evt.data;
     const eventType = evt.type;

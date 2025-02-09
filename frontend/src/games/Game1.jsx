@@ -1,74 +1,34 @@
-// userController.js
-import User from '../../../backend/models/userModel.js';
-
-export const updateSkinAvailability = async (req, res) => {
-  try {
-    const { clerkUserId } = req.params;
-    const { skinName } = req.body;
-
-    if (!clerkUserId || !skinName) {
-      return res.status(400).json({
-        success: false,
-        message: 'ClerkUserId and skinName are required'
-      });
-    }
-
-    const user = await User.findOne({ clerkUserId });
-    
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: 'User not found'
-      });
-    }
-
-    // Check if skin already exists to avoid duplicates
-    if (!user.unlockedSkins.includes(skinName)) {
-      user.unlockedSkins.push(skinName);
-      await user.save();
-    }
-
-    return res.status(200).json({
-      success: true,
-      message: 'Skin added successfully',
-      unlockedSkins: user.unlockedSkins
-    });
-  } catch (error) {
-    console.error('Error in updateSkinAvailability:', error);
-    return res.status(500).json({
-      success: false,
-      message: 'Error updating skin availability',
-      error: error.message
-    });
-  }
-};
-
-// Game1.jsx
 import React, { useState, useEffect } from 'react';
 import ReactConfetti from 'react-confetti';
 import { Button } from '../components/ui/button';
 import axios from 'axios';
-import { toast } from '@/components/ui/use-toast';
+import { useUser } from '@clerk/clerk-react';
 
 function Game1() {
   const [hitCount, setHitCount] = useState(0);
   const [skinUnlocked, setSkinUnlocked] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
-  const [user] = useState({ clerkUserId: '12345' });
+  const [successMessage, setSuccessMessage] = useState('');
+
+ const { user } = useUser();
+ 
   const skinName = 'Elite Sniper';
 
   const addSkinToUserDatabase = async () => {
     try {
       setLoading(true);
       setError(null);
+      setSuccessMessage(''); // Clear previous success message
       
-      const response = await axios.put(
-        `/api/user/${user.clerkUserId}/skins`,
+      console.log('Adding skin to user:', user.id);
+      console.log('Skin name:', skinName);
+
+      const response = await axios.post(
+        `http://localhost:5000/api/user/skins`,
         {
           skinName,
-          clerkUserId: user.clerkUserId,
+          clerkUserId: user.id,
         },
         {
           headers: {
@@ -76,22 +36,15 @@ function Game1() {
           },
         }
       );
+      console.log('Response:', response.data);
+
 
       if (response.data.success) {
-        toast({
-          title: "Skin Unlocked!",
-          description: `Successfully unlocked ${skinName}`,
-          variant: "success",
-        });
+        setSuccessMessage(`Successfully unlocked ${skinName}`);
       }
     } catch (err) {
       console.error('Error adding skin to user:', err);
-      setError(err.message);
-      toast({
-        title: "Error",
-        description: "Failed to save your unlocked skin. Please try again.",
-        variant: "destructive",
-      });
+      setError('Failed to save your unlocked skin. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -134,6 +87,7 @@ function Game1() {
             </p>
             {loading && <p className="text-sm text-gray-300">Saving your progress...</p>}
             {error && <p className="text-sm text-red-400">Error: {error}</p>}
+            {successMessage && <p className="text-sm text-green-400">{successMessage}</p>}
           </div>
         )}
       </div>
