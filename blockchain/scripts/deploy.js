@@ -75,6 +75,12 @@
 const hre = require("hardhat");
 
 async function main() {
+<<<<<<< HEAD
+  const SkinNFT = await hre.ethers.getContractFactory("SkinNFT");
+  const nft = await SkinNFT.deploy(); // No need for .deployed()
+
+  console.log("NFT Contract deployed to:", nft.target); // Use .target instead of .address in Hardhat v6+
+=======
   const [deployer] = await hre.ethers.getSigners();
 
   console.log("Deploying contracts with the account:", deployer.address);
@@ -98,6 +104,7 @@ async function main() {
   const tournament = await Tournament.deploy(espeonToken.address);
   await tournament.deployed();
   console.log("Tournament deployed to:", tournament.address);
+>>>>>>> 5d0da228168f8f7f8dddfccfb3dcb37a252ebdef
 }
 
 main()

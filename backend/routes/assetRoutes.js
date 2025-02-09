@@ -7,7 +7,7 @@ import {
   deleteAsset,
   addComment,
   likeAsset
-} from '../controllers/assetController';
+} from '../controllers/assetController.js';
 
 const router = express.Router();
 

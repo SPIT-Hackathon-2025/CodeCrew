@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 "use client";
 import React from "react";
+import { FaUserCircle } from "react-icons/fa"; // Import the profile icon
 
 const Leaderboard = () => {
   const [players] = useState([
@@ -11,7 +11,6 @@ const Leaderboard = () => {
       totalWins: 342,
       winRate: "68%",
       totalPrize: "$980,000",
-      avatar: "/images/player1.jpg",
       country: "USA",
       team: "Cloud9",
       gamesPlayed: 502,
@@ -26,7 +25,6 @@ const Leaderboard = () => {
       totalWins: 315,
       winRate: "65%",
       totalPrize: "$850,000",
-      avatar: "/images/player2.jpg",
       country: "South Korea",
       team: "T1",
       gamesPlayed: 484,
@@ -37,59 +35,38 @@ const Leaderboard = () => {
     },
     {
       rank: 3,
-      name: "EliteSniper",
-      totalWins: 298,
-      winRate: "62%",
-      totalPrize: "$720,000",
-      avatar: "/images/player3.jpg",
-      country: "Sweden",
-      team: "Fnatic",
+      name: "ShadowMaster",
+      totalWins: 290,
+      winRate: "60%",
+      totalPrize: "$730,000",
+      country: "Germany",
+      team: "G2 Esports",
       gamesPlayed: 480,
       killDeathRatio: "2.5",
-      recentForm: "L W W W L",
+      recentForm: "L W W W W",
       preferredGame: "CS:GO",
       tournamentWins: 10,
     },
     {
       rank: 4,
-      name: "PixelQueen",
-      totalWins: 285,
-      winRate: "60%",
-      totalPrize: "$650,000",
-      avatar: "/images/player4.jpg",
-      country: "Canada",
-      team: "TSM",
-      gamesPlayed: 475,
-      killDeathRatio: "2.4",
-      recentForm: "W L W L W",
-      preferredGame: "Apex Legends",
-      tournamentWins: 8,
-    },
-    {
-      rank: 5,
-      name: "CyberKnight",
-      totalWins: 267,
+      name: "SniperElite",
+      totalWins: 275,
       winRate: "58%",
-      totalPrize: "$580,000",
-      avatar: "/images/player5.jpg",
-      country: "Germany",
-      team: "G2",
-      gamesPlayed: 460,
+      totalPrize: "$650,000",
+      country: "Sweden",
+      team: "Fnatic",
+      gamesPlayed: 470,
       killDeathRatio: "2.3",
-      recentForm: "L W L W W",
-      preferredGame: "Fortnite",
-      tournamentWins: 7,
-    },
+      recentForm: "W L W W L",
+      preferredGame: "Call of Duty",
+      tournamentWins: 8,
+    }
   ]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1a1c2e] to-[#0f1119] p-6 font-roboto">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-white mb-8 text-center">
-          Global Esports Leaderboard
-        </h1>
-
-        <div className="bg-[#242738] rounded-xl shadow-2xl p-6">
+      <div className="max-w-6xl mx-auto mt-15">
+        <div className="bg-[#242738] rounded-xl shadow-2xl p-6 mt-20">
           <div className="grid grid-cols-12 gap-4 text-[#8a8d9e] text-sm font-semibold mb-4 px-4">
             <div className="col-span-1">Rank</div>
             <div className="col-span-2">Player</div>
@@ -112,10 +89,10 @@ const Leaderboard = () => {
                     player.rank === 1
                       ? "bg-[#ffd700]"
                       : player.rank === 2
-                        ? "bg-[#c0c0c0]"
-                        : player.rank === 3
-                          ? "bg-[#cd7f32]"
-                          : "bg-[#2a2d42]"
+                      ? "bg-[#c0c0c0]"
+                      : player.rank === 3
+                      ? "bg-[#cd7f32]"
+                      : "bg-[#2a2d42]"
                   } text-center leading-8 text-white font-bold`}
                 >
                   {player.rank}
@@ -123,31 +100,15 @@ const Leaderboard = () => {
               </div>
 
               <div className="col-span-2 flex items-center gap-3">
-                <div className="relative">
-                  <img
-                    src={player.avatar}
-                    alt={`${player.name}'s avatar`}
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
-                  <img
-                    src={`/images/flags/${player.country.toLowerCase()}.png`}
-                    alt={`${player.country} flag`}
-                    className="w-4 h-4 absolute -bottom-1 -right-1 rounded-full border-2 border-[#2a2d42]"
-                  />
-                </div>
+                <FaUserCircle className="w-10 h-10 text-gray-400" /> {/* Profile Icon */}
                 <div className="flex flex-col">
-                  <span className="text-white font-semibold">
-                    {player.name}
-                  </span>
+                  <span className="text-white font-semibold">{player.name}</span>
                   <span className="text-xs text-[#8a8d9e]">{player.team}</span>
                 </div>
               </div>
-              <div className="col-span-1 text-center">
-                <span className="text-[#8a8d9e] text-sm">{player.team}</span>
-              </div>
-              <div className="col-span-1 text-center text-white">
-                {player.gamesPlayed}
-              </div>
+
+              <div className="col-span-1 text-center text-white">{player.team}</div>
+              <div className="col-span-1 text-center text-white">{player.gamesPlayed}</div>
               <div className="col-span-1 text-center">
                 <span className="px-2 py-1 bg-[#3d4257] rounded-full text-[#00ff9d]">
                   {player.killDeathRatio}

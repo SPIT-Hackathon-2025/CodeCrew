@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import webhookRoutes from './routes/webhookRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
 import assetRoutes from './routes/assetRoutes.js'; 
+import userRoutes from './routes/userRoutes.js'; 
 
 dotenv.config();
 
@@ -13,9 +14,18 @@ connectDB();
 const app = express();
 app.use(cors());
 
-// Routes
+
+const NFTs = [
+  { id: 1, name: "Epic Sword", image: "/assets/sword.png", price: "0.1 ETH" },
+  { id: 2, name: "Mystic Shield", image: "/assets/shield.png", price: "0.15 ETH" }
+];
+
+app.get("/nfts", (req, res) => {
+  res.json({ success: true, data: NFTs });
+});
 app.use('/api', webhookRoutes);
 app.use('/api', assetRoutes);
+app.use('/api', userRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);
