@@ -61,8 +61,7 @@ const Header = () => {
             />
           </div>
         </Link>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-        {/* Desktop Navigation */}
+ {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-center flex-1 px-8">
           <div className="flex items-center gap-8 text-base font-medium">
             {navItems.map(({ name, icon, protected: isProtected }) => (
