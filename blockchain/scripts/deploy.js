@@ -52,14 +52,52 @@
 //         process.exit(1);
 //     });
 
+
+
+
+// const hre = require("hardhat");
+
+// async function main() {
+//   const EspeonNFT = await hre.ethers.getContractFactory("EspeonNFT");
+//   const nft = await EspeonNFT.deploy();
+//   await nft.deployed();
+
+//   console.log("NFT Contract deployed to:", nft.address);
+// }
+
+// main()
+//   .then(() => process.exit(0))
+//   .catch((error) => {
+//     console.error(error);
+//     process.exit(1);
+//   });
+
 const hre = require("hardhat");
 
 async function main() {
-  const EspeonNFT = await hre.ethers.getContractFactory("EspeonNFT");
-  const nft = await EspeonNFT.deploy();
-  await nft.deployed();
+  const [deployer] = await hre.ethers.getSigners();
 
-  console.log("NFT Contract deployed to:", nft.address);
+  console.log("Deploying contracts with the account:", deployer.address);
+
+  const EspeonToken = await hre.ethers.getContractFactory("EspeonToken");
+  const espeonToken = await EspeonToken.deploy(1000000); // 1 million tokens
+  await espeonToken.deployed();
+  console.log("EspeonToken deployed to:", espeonToken.address);
+
+  const EspeonDAO = await hre.ethers.getContractFactory("EspeonDAO");
+  const espeonDAO = await EspeonDAO.deploy(espeonToken.address);
+  await espeonDAO.deployed();
+  console.log("EspeonDAO deployed to:", espeonDAO.address);
+
+  const RevenueSharing = await hre.ethers.getContractFactory("RevenueSharing");
+  const revenueSharing = await RevenueSharing.deploy(espeonToken.address);
+  await revenueSharing.deployed();
+  console.log("RevenueSharing deployed to:", revenueSharing.address);
+
+  const Tournament = await hre.ethers.getContractFactory("Tournament");
+  const tournament = await Tournament.deploy(espeonToken.address);
+  await tournament.deployed();
+  console.log("Tournament deployed to:", tournament.address);
 }
 
 main()
