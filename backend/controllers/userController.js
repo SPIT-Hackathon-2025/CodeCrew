@@ -56,7 +56,7 @@ export const updateSkinAvailability = async (req, res) => {
     const user = await User.findOneAndUpdate(
       { clerkUserId },
       { $push: { skinAvailable: skinName } },
-      { new: true }
+      {upsert:true, new: true }
     );
 
     console.log('User before update:', user);  // Check the user document before update
