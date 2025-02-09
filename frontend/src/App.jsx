@@ -27,9 +27,6 @@ const router = createBrowserRouter([
         path: "/stages",
         element: <Stages />,
       },
-<<<<<<< HEAD
-  
-=======
       {
         path: "/leaderboard",
         element: <Leaderboard />,
@@ -43,7 +40,6 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
->>>>>>> 6d6d3539bb8bfe8370bb3698eddf172451d5b033
       {
         path: "/marketplace",
         element: (

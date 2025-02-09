@@ -22,8 +22,6 @@ import {
 import { ConnectButton } from "thirdweb/react";
 import { client } from "../client.js";
 
-<<<<<<< HEAD
-=======
 const navItems = [
   { name: "Tournament", icon: <LayoutDashboard size={18} />, protected: true },
   { name: "Stages", icon: <GamepadIcon size={18} />, protected: false },
@@ -31,7 +29,6 @@ const navItems = [
   { name: "Leaderboard", icon: <Trophy size={18} />, protected: false },
   { name: "Governance", icon: <Vote size={18} />, protected: true }
 ];
->>>>>>> 6d6d3539bb8bfe8370bb3698eddf172451d5b033
 
 const Header = () => {
 
