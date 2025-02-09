@@ -16,7 +16,8 @@ import {
   MessageSquare,
   LogIn,
   Menu,
-  X
+  X,
+  Vote
 } from "lucide-react";
 import { ConnectButton } from "thirdweb/react";
 import { client } from "../client.js";
@@ -25,7 +26,8 @@ const navItems = [
   { name: "Tournament", icon: <LayoutDashboard size={18} />, protected: true },
   { name: "Stages", icon: <GamepadIcon size={18} />, protected: false },
   { name: "Marketplace", icon: <ShoppingCart size={18} />, protected: true },
-  { name: "Leaderboard", icon: <Trophy size={18} />, protected: false }
+  { name: "Leaderboard", icon: <Trophy size={18} />, protected: false },
+  { name: "Governance", icon: <Vote size={18} />, protected: true }
 ];
 
 const Header = () => {

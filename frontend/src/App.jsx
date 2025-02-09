@@ -9,6 +9,8 @@ import Dashboard from "./pages/Dashboard";
 import Marketplace from "./pages/Marketplace";
 import Leaderboard from "./pages/Leaderboard";
 import Stages from "./pages/Stages";
+import Governance from "./pages/Governance";
+import { BlockchainProvider } from "./context/BlockchainContext";
 
 const router = createBrowserRouter([
   {
@@ -30,32 +32,40 @@ const router = createBrowserRouter([
         path: "/leaderboard",
         element: <Leaderboard />,
       },
-  
+
       {
         path: "/tournament",
         element: (
           <ProtectedRoute>
             <Dashboard />
-            </ProtectedRoute>
+          </ProtectedRoute>
         ),
       },
       {
         path: "/marketplace",
         element: (
           <ProtectedRoute>
-            <Marketplace/>
-            </ProtectedRoute>
+            <Marketplace />
+          </ProtectedRoute>
         ),
       },
       {
         path: "/leaderboard",
         element: (
           <ProtectedRoute>
-            <Leaderboard/>
-            </ProtectedRoute>
+            <Leaderboard />
+          </ProtectedRoute>
         ),
       },
-      
+      {
+        path: "/governance",
+        element: (
+          <ProtectedRoute>
+            <Governance />
+          </ProtectedRoute>
+        ),
+      },
+
     ],
   },
 ]);
@@ -64,7 +74,9 @@ function App() {
   // return <div>hello</div>;
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
+      <BlockchainProvider>
+        <RouterProvider router={router} />
+      </BlockchainProvider>
     </ThemeProvider>
   );
 }
