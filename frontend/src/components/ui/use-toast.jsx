@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactConfetti from 'react-confetti';
-import { Button } from '../components/ui/button';
+import { Button } from './button';
 import axios from 'axios';
 import { useUser } from '@clerk/clerk-react';
 
